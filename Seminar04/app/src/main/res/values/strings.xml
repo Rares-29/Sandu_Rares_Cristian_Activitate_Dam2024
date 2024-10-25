@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Seminar04</string>
+    <string name="robot_name">Robot name</string>
+    <string name="is_smart">is Smart?</string>
+    <string name="robot_date">22-04-2024</string>
+    <string name="robot_button">Create</string>
+    <string-array name="robot_software">
+        <item>32 Bytes</item>
+        <item>64 Bytes</item>
+    </string-array>
+</resources>

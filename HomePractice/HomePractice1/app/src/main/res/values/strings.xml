@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HomePractice1</string>
+    <string name="hello">Hello, Rares</string>
+    <string name="createProfileBtn">Create Profile</string>
+    <string name="sendProfile">Send profile</string>
+    <string name="submitProfile">Submit profile</string>
+    <string name = "profileCheckbox">Sport?</string>
+    <string name="profileName">Name</string>
+    <string name="profileAge">Age</string>
+    <string-array name="profileSex">
+        <item>M</item>
+        <item>F</item>
+        <item>Other</item>
+    </string-array>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".RobotForm"
+    android:gravity="center"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/RobotName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/robot_name"/>
+
+    <Spinner
+        android:id="@+id/RobotSoftBytes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/robot_software" />
+
+    <CheckBox
+        android:id="@+id/RobotIsSmart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/is_smart" />
+
+    <DatePicker
+        android:id="@+id/RobotLastActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </DatePicker>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/robot_button"
+        android:onClick="onClickCreateRobot"/>
+</LinearLayout>
+</ScrollView>
+</LinearLayout>
