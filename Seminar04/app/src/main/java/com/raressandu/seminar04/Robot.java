@@ -1,8 +1,11 @@
 package com.raressandu.seminar04;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class Robot {
+public class Robot implements Parcelable {
     String name;
     Boolean isSmart;
     Date lastTimeActive;
@@ -14,6 +17,39 @@ public class Robot {
         this.lastTimeActive = lastTimeActive;
         this.softBytes = softBytes;
     }
+
+    protected Robot(Parcel in) {
+        name = in.readString();
+        lastTimeActive=(java.util.Date) in.readSerializable();
+        byte tmpIsSmart = in.readByte();
+        isSmart = tmpIsSmart == 0 ? null : tmpIsSmart == 1;
+        softBytes = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeSerializable(lastTimeActive);
+        dest.writeByte((byte) (isSmart == null ? 0 : isSmart ? 1 : 2));
+        dest.writeString(softBytes);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Robot> CREATOR = new Creator<Robot>() {
+        @Override
+        public Robot createFromParcel(Parcel in) {
+            return new Robot(in);
+        }
+
+        @Override
+        public Robot[] newArray(int size) {
+            return new Robot[size];
+        }
+    };
 
     public String getName() {
         return name;

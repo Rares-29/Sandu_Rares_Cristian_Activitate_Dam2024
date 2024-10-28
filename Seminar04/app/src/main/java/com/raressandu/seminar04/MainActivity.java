@@ -1,19 +1,26 @@
 package com.raressandu.seminar04;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    private List<Robot> robots;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        robots = new ArrayList<>();
         // button
         Button button = findViewById(R.id.MainButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -26,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 403);
             }
         });
+        Button listButton = (Button)findViewById(R.id.mainListaRoboti);
+        listButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(getApplicationContext(), RobotListActivity.class);
+                it.putParcelableArrayListExtra("roboti", (ArrayList<? extends Parcelable>) robots);
+                startActivity(it);
+            }
+        });
     }
 
     @Override
@@ -33,4 +49,15 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 403) {
+            if(resultCode == RESULT_OK) {
+                Robot robot = data.getParcelableExtra("robot");
+                robots.add(robot);
+
+            }
+        }
+    }
 }

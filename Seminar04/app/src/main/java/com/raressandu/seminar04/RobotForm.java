@@ -2,7 +2,9 @@ package com.raressandu.seminar04;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -29,7 +31,10 @@ public class RobotForm extends AppCompatActivity {
         String softwareBytes = ((Spinner)findViewById(R.id.RobotSoftBytes)).getSelectedItem().toString();
         Robot r = new Robot(name,isSmart, d, softwareBytes);
         Log.d("Hello", r.toString());
-
+        Intent it = new Intent();
+        it.putExtra("robot", r);
+        setResult(RESULT_OK, it);
+        finish();
         /*Layout Gravity -> seteaza butonul unde sa fie centrat
         Gravity seteaza in interiorul lui textul cum sa fie centrat
         */
