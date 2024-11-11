@@ -23,23 +23,43 @@ public class RobotListActivity extends AppCompatActivity {
 
         ListView lv = (ListView) findViewById(R.id.robotsLV);
         // Adaptori... Ai android.R.layout acum in loc de R.layout, ca e luat din core de la android
-        ArrayAdapter<Robot> adapter = new ArrayAdapter<>(getApplication(), android.R.layout.simple_list_item_1, robots);
-        lv.setAdapter(adapter);
+ //       ArrayAdapter<Robot> adapter = new ArrayAdapter<>(getApplication(), android.R.layout.simple_list_item_1, robots);
+ //       lv.setAdapter(adapter);
 
+//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Toast.makeText(getApplicationContext(), robots.get(i).toString(), Toast.LENGTH_LONG).show();
+//            }
+//        });
+//        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                robots.remove(i);
+//                adapter.notifyDataSetChanged();
+//                return false;
+//            }
+//        });
+        // Seminar 7
+        RobotAdapter adapterPersonalizat = new RobotAdapter(robots, getApplicationContext(), R.layout.item_layout);
+        lv.setAdapter(adapterPersonalizat);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(), robots.get(i).toString(), Toast.LENGTH_LONG).show();
             }
         });
+
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                robots.remove(i);
-                adapter.notifyDataSetChanged();
+                  robots.remove(i);
+                  adapterPersonalizat.notifyDataSetChanged();
                 return false;
             }
         });
+
+
     }
 
     @Override

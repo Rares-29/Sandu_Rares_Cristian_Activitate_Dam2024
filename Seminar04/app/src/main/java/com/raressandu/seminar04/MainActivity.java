@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         robots = new ArrayList<>();
         // button
         Button button = findViewById(R.id.MainButton);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".AirlineFormActivity">
+
+    <EditText
+        android:id="@+id/formNumePasager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nume pasager"/>
+    <EditText
+        android:id="@+id/formPretBilet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Pret"/>
+    <DatePicker
+        android:id="@+id/formDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Spinner
+        android:id="@+id/formTicketTypes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/ticketTypes"
+        />
+    <Button
+        android:id="@+id/formBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Adauga rezervare"/>
+</LinearLayout>

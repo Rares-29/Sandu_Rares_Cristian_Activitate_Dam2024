@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PrepareForExam03</string>
+    <string-array name="difficulties">
+        <item>EASY</item>
+        <item>MEDIUM</item>
+        <item>HARD</item>
+    </string-array>
+</resources>

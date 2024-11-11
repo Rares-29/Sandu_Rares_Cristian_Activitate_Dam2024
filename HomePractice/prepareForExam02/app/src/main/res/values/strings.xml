@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">prepareForExam02</string>
+    <string name="main_welcome_msg">Welcome to Wizz Air!</string>
+    <string-array name="ticketTypes">
+        <item>Standard</item>
+        <item>Premium</item>
+    </string-array>
+</resources>
