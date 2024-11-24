@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        Button galerieBtn = (Button) findViewById(R.id.mainGalerieBtn);
+        galerieBtn.setOnClickListener((View view) -> {
+            Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
