@@ -52,15 +52,15 @@ public class ImageActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+                handler.post(() -> {
+                    ListView lv = findViewById(R.id.imageLV);
+                    ImageAdapter imageAdapter = new ImageAdapter(images, getApplicationContext(), R.layout.image_template);
+                    lv.setAdapter(imageAdapter);
+
+                });
             }
         });
 
-        handler.post(() -> {
-            ListView lv = findViewById(R.id.imageLV);
-            ImageAdapter imageAdapter = new ImageAdapter(images, getApplicationContext(), R.layout.activity_image);
-            lv.setAdapter(imageAdapter);
-
-        });
 
     }
 }
