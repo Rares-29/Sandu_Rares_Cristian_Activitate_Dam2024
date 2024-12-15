@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestPractice12</string>
+    <string name="main_add_house_btn">Adauga casa</string>
+    <string name="main_display_btn">Vezi casa</string>
+</resources>

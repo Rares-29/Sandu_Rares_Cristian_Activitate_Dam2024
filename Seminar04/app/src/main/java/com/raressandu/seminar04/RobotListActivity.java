@@ -3,6 +3,7 @@ package com.raressandu.seminar04;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,14 +48,23 @@ public class RobotListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(), robots.get(i).toString(), Toast.LENGTH_LONG).show();
+
             }
         });
 
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                  robots.remove(i);
+                  //robots.remove(i);
                   adapterPersonalizat.notifyDataSetChanged();
+                try {
+                    SharedPreferences sp = getSharedPreferences("obiecteFavorite", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString(robots.get(i).getName() + robots.get(i).getLastTimeActive().toString(), robots.get(i).toString());
+                    editor.commit();
+                }catch(Exception e) {
+                    System.out.println(e);
+                }
                 return false;
             }
         });

@@ -4,11 +4,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
         Button galerieBtn = (Button) findViewById(R.id.mainGalerieBtn);
         galerieBtn.setOnClickListener((View view) -> {
             Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+            startActivity(intent);
+        });
+
+        Button sharedBtn = findViewById(R.id.sharedPreferenceBtn);
+        sharedBtn.setOnClickListener((View view) -> {
+            Intent intent = new Intent(getApplicationContext(), SharedPreferenceActivityList.class);
             startActivity(intent);
         });
     }

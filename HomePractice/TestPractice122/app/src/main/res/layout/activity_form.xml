@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormActivity">
+    tools:context=".FormActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+    <EditText
+        android:id="@+id/formRegistrationNumber"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="registration number"/>
+    <EditText
+        android:id="@+id/formAnimalName"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="name"/>
+    <EditText
+        android:id="@+id/formAnimalWeight"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="weight">
+    </EditText>
+    <CheckBox
+        android:id="@+id/formCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Carnivor?"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/formBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adauga animal"
+        />
+</LinearLayout>
