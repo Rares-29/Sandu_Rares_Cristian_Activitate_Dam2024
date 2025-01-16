@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "533489540360",
+    "project_id": "seminar04-331fc",
+    "storage_bucket": "seminar04-331fc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:533489540360:android:6648f4506639f76a7960bd",
+        "android_client_info": {
+          "package_name": "com.raressandu.seminar04"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFKZeDhMAS19CdmB9796sZXRSCfMirbV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

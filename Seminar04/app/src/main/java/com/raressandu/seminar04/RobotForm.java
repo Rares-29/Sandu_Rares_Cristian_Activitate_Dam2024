@@ -51,12 +51,15 @@ public class RobotForm extends AppCompatActivity {
                 }
             }
         });
+        CheckBox checkbox = findViewById(R.id.saveToFirebase);
+        it.putExtra("cbResult", checkbox.isChecked());
         setResult(RESULT_OK, it);
         finish();
         /*Layout Gravity -> seteaza butonul unde sa fie centrat
         Gravity seteaza in interiorul lui textul cum sa fie centrat
         */
         findViewById(R.id.RobotSoftBytes);
+
 
     }
 }

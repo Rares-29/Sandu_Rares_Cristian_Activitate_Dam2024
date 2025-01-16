@@ -18,6 +18,10 @@ public class Robot implements Parcelable {
         this.softBytes = softBytes;
     }
 
+    public Robot() {
+
+    }
+
     protected Robot(Parcel in) {
         name = in.readString();
         lastTimeActive=(java.util.Date) in.readSerializable();

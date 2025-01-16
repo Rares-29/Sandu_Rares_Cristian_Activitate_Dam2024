@@ -7,21 +7,58 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private List<Robot> robots;
+    DatabaseReference myRef;
+    FirebaseDatabase database;
+    private List<Robot> robots2 = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Write a message to the database
+        database = FirebaseDatabase.getInstance("https://seminar04-331fc-default-rtdb.europe-west1.firebasedatabase.app");
+        myRef = database.getReference("robot/");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Iterable<DataSnapshot> values = dataSnapshot.getChildren();
+                values.forEach(dataSnapshot1 -> {
+                    Robot r = dataSnapshot1.getValue(Robot.class);
+                    robots2.add(r);
+                });
+                Toast.makeText(getApplicationContext(), "S-au facut modificari", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("MainActivity", "Failed to read value.", error.toException());
+            }
+        });
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -60,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), SharedPreferenceActivityList.class);
             startActivity(intent);
         });
+
+
     }
 
     @Override
@@ -74,6 +113,10 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK) {
                 Robot robot = data.getParcelableExtra("robot");
                 robots.add(robot);
+                if (data.getBooleanExtra("cbResult", true)) {
+                    myRef = database.getReference("robot/" + robot.name);
+                    myRef.setValue(robot);
+                }
 
             }
         }
